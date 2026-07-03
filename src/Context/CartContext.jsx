@@ -1,56 +1,60 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+function CartProvider({ children }) {
 
-  const [cartItems, setCartItems] = useState(() => {
-    const savedCart = localStorage.getItem("cart");
+    const [cart, setCart] = useState([]);
 
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+    function addToCart(product) {
 
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartItems));
-  }, [cartItems]);
+        const exists = cart.find(
+            item => item.id === product.id
+        );
 
-  const addToCart = (product) => {
+        if (exists) {
 
-    const exists = cartItems.find(
-      (item) => item.id === product.id
+            alert("Product already in cart");
+
+            return;
+
+        }
+
+        setCart(prev => [...prev, product]);
+
+    }
+
+    function removeFromCart(id) {
+
+        setCart(prev =>
+            prev.filter(item => item.id !== id)
+        );
+
+    }
+
+    function clearCart() {
+
+        setCart([]);
+
+    }
+
+    return (
+
+        <CartContext.Provider
+            value={{
+                cart,
+                addToCart,
+                removeFromCart,
+                clearCart
+            }}
+        >
+
+            {children}
+
+        </CartContext.Provider>
+
     );
 
-    if (exists) return;
+}
 
-    setCartItems((prevItems) => [...prevItems, product]);
-  };
-
-  const removeFromCart = (id) => {
-
-    setCartItems((prevItems) =>
-      prevItems.filter((item) => item.id !== id)
-    );
-
-  };
-
-  const clearCart = () => {
-
-    setCartItems([]);
-
-  };
-
-  return (
-    <CartContext.Provider
-      value={{
-        cartItems,
-        addToCart,
-        removeFromCart,
-        clearCart,
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
-
-export const useCart = () => useContext(CartContext);
+export default CartProvider;
