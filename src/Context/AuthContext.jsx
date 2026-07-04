@@ -1,34 +1,52 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+function AuthProvider({ children }) {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
 
-  const login = () => {
+        return JSON.parse(localStorage.getItem("login")) || false;
 
-    setIsLoggedIn(true);
+    });
 
-  };
+    useEffect(() => {
 
-  const logout = () => {
+        localStorage.setItem(
+            "login",
+            JSON.stringify(isLoggedIn)
+        );
 
-    setIsLoggedIn(false);
+    }, [isLoggedIn]);
 
-  };
+    function login() {
 
-  return (
-    <AuthContext.Provider
-      value={{
-        isLoggedIn,
-        login,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
-};
+        setIsLoggedIn(true);
 
-export const useAuth = () => useContext(AuthContext);
+    }
+
+    function logout() {
+
+        setIsLoggedIn(false);
+
+    }
+
+    return (
+
+        <AuthContext.Provider
+            value={{
+                isLoggedIn,
+                login,
+                logout
+            }}
+        >
+
+            {children}
+
+        </AuthContext.Provider>
+
+    );
+
+}
+
+export default AuthProvider;

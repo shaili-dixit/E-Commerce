@@ -1,10 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
 
     const { cart } = useContext(CartContext);
+
+    const { isLoggedIn, logout } = useContext(AuthContext);
 
     return (
 
@@ -17,8 +20,8 @@ function Navbar() {
                 padding: "18px 40px",
                 color: "white",
                 position: "sticky",
-                top: 0,
-                zIndex: 1000
+                top: "0",
+                zIndex: "1000"
             }}
         >
 
@@ -55,17 +58,6 @@ function Navbar() {
                 </NavLink>
 
                 <NavLink
-                    to="/login"
-                    style={({ isActive }) => ({
-                        color: "white",
-                        textDecoration: "none",
-                        fontWeight: isActive ? "bold" : "normal"
-                    })}
-                >
-                    Login
-                </NavLink>
-
-                <NavLink
                     to="/cart"
                     className="cart-link"
                     style={({ isActive }) => ({
@@ -81,6 +73,34 @@ function Navbar() {
                     </span>
 
                 </NavLink>
+
+                {!isLoggedIn ? (
+
+                    <NavLink
+                        to="/login"
+                        style={({ isActive }) => ({
+                            color: "white",
+                            textDecoration: "none",
+                            fontWeight: isActive ? "bold" : "normal"
+                        })}
+                    >
+                        Login
+                    </NavLink>
+
+                ) : (
+
+                    <button
+                        className="btn"
+                        onClick={logout}
+                        style={{
+                            padding: "8px 16px",
+                            fontSize: "14px"
+                        }}
+                    >
+                        Logout
+                    </button>
+
+                )}
 
             </div>
 

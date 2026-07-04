@@ -6,13 +6,26 @@ import "./index.css";
 import App from "./App";
 
 import CartProvider from "./context/CartContext";
+import AuthProvider from "./context/AuthContext";
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <BrowserRouter>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </BrowserRouter>
-  </StrictMode>
+
+    <StrictMode>
+
+        <BrowserRouter>
+
+            <AuthProvider>
+
+                <CartProvider>
+
+                    <App />
+
+                </CartProvider>
+
+            </AuthProvider>
+
+        </BrowserRouter>
+
+    </StrictMode>
+
 );
