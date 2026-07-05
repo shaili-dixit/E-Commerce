@@ -7,7 +7,7 @@ import Shop from "./pages/Shop";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
-import Checkout from "./pages/temp";
+import Checkout from "./pages/Checkout";
 
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 
