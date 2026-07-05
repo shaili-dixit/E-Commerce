@@ -5,8 +5,8 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 
-import CartProvider from "./context/CartContext";
-import AuthProvider from "./context/AuthContext";
+import CartProvider from "./tempcontext/CartContext";
+import AuthProvider from "./tempcontext/AuthContext";
 
 createRoot(document.getElementById("root")).render(
 
