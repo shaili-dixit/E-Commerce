@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
 
 function Cart() {
     const { cart, removeFromCart, clearCart } = useContext(CartContext);
+
+    const navigate = useNavigate();
 
     const total = cart.reduce((sum, item) => sum + item.price, 0);
 
@@ -11,7 +13,6 @@ function Cart() {
         return (
             <div className="container">
                 <div className="empty-cart">
-
                     <h1>🛒 Your Cart is Empty</h1>
 
                     <p>Add some amazing products!</p>
@@ -21,7 +22,6 @@ function Cart() {
                             Continue Shopping
                         </button>
                     </Link>
-
                 </div>
             </div>
         );
@@ -74,9 +74,7 @@ function Cart() {
 
                                 <button
                                     className="remove-btn"
-                                    onClick={() =>
-                                        removeFromCart(product.id)
-                                    }
+                                    onClick={() => removeFromCart(product.id)}
                                 >
                                     Remove
                                 </button>
@@ -110,8 +108,11 @@ function Cart() {
                         <span>${total.toFixed(2)}</span>
                     </p>
 
-                    <button className="btn">
-                        Checkout
+                    <button
+                        className="btn"
+                        onClick={() => navigate("/checkout")}
+                    >
+                        Proceed to Checkout
                     </button>
 
                     <button
