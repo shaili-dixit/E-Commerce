@@ -13,7 +13,7 @@ function ProductCard({ product }) {
 
             <h3>{product.title}</h3>
 
-            <p>${product.price}</p>
+            <p>₹{product.price}</p>
 
             <Link
                 className="btn"

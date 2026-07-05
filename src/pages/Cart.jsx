@@ -70,7 +70,7 @@ function Cart() {
 
                             <div className="cart-price">
 
-                                <h2>${product.price}</h2>
+                                <h2>₹{product.price}</h2>
 
                                 <button
                                     className="remove-btn"
@@ -105,7 +105,7 @@ function Cart() {
 
                     <p className="total">
                         Total
-                        <span>${total.toFixed(2)}</span>
+                        <span>₹{total.toFixed(2)}</span>
                     </p>
 
                     <button

@@ -105,7 +105,7 @@ function Checkout() {
 
                                     <h2>
 
-                                        ${product.price}
+                                        ₹{product.price}
 
                                     </h2>
 
@@ -161,7 +161,7 @@ function Checkout() {
 
                         <span>
 
-                            ${total.toFixed(2)}
+                            ₹{total.toFixed(2)}
 
                         </span>
 
