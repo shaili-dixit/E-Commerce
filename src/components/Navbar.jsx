@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
-import { CartContext } from "../tempcontext/CartContext";
-import { AuthContext } from "../tempcontext/AuthContext";
+import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Navbar() {
 

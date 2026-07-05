@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { getProduct } from "../services/api";
-import { CartContext } from "../tempcontext/CartContext";
+import { CartContext } from "../context/CartContext";
 import Loader from "../components/Loader";
 
 function Product() {

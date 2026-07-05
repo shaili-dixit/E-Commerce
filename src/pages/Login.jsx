@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../tempcontext/AuthContext";
+import { AuthContext } from "../context/AuthContext";
 
 function Login() {
 
