@@ -1,18 +1,17 @@
-# React + Vite
+As a Frontend Developer Intern at Prodesk IT, I developed a responsive Single Page Application (SPA) using React.js, React Router, and Context API as part of an engineering sprint. The application features dynamic product browsing, detailed product pages, global cart management, guest authentication, and protected checkout functionality.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Integrated the DummyJSON REST API to fetch and render products dynamically, implemented client-side routing with React Router, and managed global application state using Context API without Redux. Added Local Storage persistence to preserve cart data across browser refreshes and built a responsive user interface optimized for desktop and mobile devices.
 
-Currently, two official plugins are available:
+## Key responsibilities and achievements:
+• Developed a responsive Single Page Application (SPA) using React.js and React Router.
+• Integrated the DummyJSON REST API for dynamic product rendering.
+• Implemented dynamic routing with product detail pages using URL parameters.
+• Built a global shopping cart using React Context API with real-time state updates.
+• Added Local Storage persistence for seamless user experience across sessions.
+• Implemented guest authentication and protected checkout routes.
+• Designed responsive Home, Shop, Product Details, Cart, Login, and Checkout pages.
+• Managed application state efficiently without Redux using Context API.
+• Maintained the project using Git and GitHub with regular version control practices.
+• Successfully deployed the application on Vercel for production.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tech Stack: React.js, React Router, Context API, JavaScript (ES6+), HTML5, CSS3, REST API, Local Storage, Git, GitHub, and Vercel.
